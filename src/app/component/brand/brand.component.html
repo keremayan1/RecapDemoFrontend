@@ -1,6 +1,11 @@
-<table class="table">
-    <tr *ngFor="let brand of brands">
-        <td>{{brand.id}}</td>
-        <td>{{brand.name}}</td>
-    </tr>
-</table>
+<h5>Markalar</h5>
+<ul class="list-group">
+  <li
+    routerLink="/cars/brand/{{ brand.brandId }}"
+    (click)="setCurrentBrandName(brand)"
+    *ngFor="let brand of brands"
+    [class]="getCurrentBrandClass(brand)"
+  >
+    {{ brand.name }}
+  </li>
+</ul>
