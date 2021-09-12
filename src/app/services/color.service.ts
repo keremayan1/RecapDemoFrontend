@@ -9,8 +9,13 @@ import { SingleResponseModel } from '../models/singleResponseModel';
   providedIn: 'root',
 })
 export class ColorService {
+<<<<<<< HEAD
   apiUrl: string = 'https://localhost:44373/api/colors/';
   constructor(private httpClient: HttpClient) {}
+=======
+ apiUrl:string="https://localhost:44373/api/colors/"
+  constructor(private httpClient:HttpClient) { }
+>>>>>>> 9b2c011fc7082c95c63a90cc4a071ff45f2ccb72
 
   getColors(): Observable<ListResponseModel<Color>> {
     let newPath = this.apiUrl + 'getall';

@@ -10,11 +10,18 @@ import { SingleResponseModel } from '../models/singleResponseModel';
   providedIn: 'root',
 })
 export class BrandService {
+<<<<<<< HEAD
   apiUrl: string = 'https://localhost:44373/api/brands/';
   constructor(private httpClient: HttpClient) {}
   getBrands(): Observable<ListResponseModel<Brand>> {
     let newPath = this.apiUrl + 'getall';
     console.log(newPath);
+=======
+ apiUrl:string="https://localhost:44373/api/brands/"
+  constructor(private httpClient:HttpClient) { }
+  getBrands():Observable<ListResponseModel<Brand>>{
+    let newPath =this.apiUrl+"getall"
+>>>>>>> 9b2c011fc7082c95c63a90cc4a071ff45f2ccb72
     return this.httpClient.get<ListResponseModel<Brand>>(newPath);
   }
   getByBrandId(brandId: number): Observable<SingleResponseModel<Brand>> {
