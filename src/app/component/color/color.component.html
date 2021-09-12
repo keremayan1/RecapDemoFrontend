@@ -1,11 +1,12 @@
 <h5>Renkler</h5>
 <ul class="list-group">
   <li
+  *ngFor="let color of colors"
   routerLink="/cars/color/{{color.colorId}}"
     (click)="setCurrentColorName(color)"
-    *ngFor="let color of colors"
+    
     [class]="getCurrentColorClass(color)"
   >
-    {{ color.name }}
+    {{ color.colorName }}
   </li>
 </ul>

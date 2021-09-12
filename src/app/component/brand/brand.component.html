@@ -1,11 +1,12 @@
 <h5>Markalar</h5>
 <ul class="list-group">
   <li
-    routerLink="/cars/brand/{{ brand.brandId }}"
-    (click)="setCurrentBrandName(brand)"
+  routerLink="/cars/brand/{{brand.brandId}}"
+    (click)="setCurrentBrand(brand)"
     *ngFor="let brand of brands"
     [class]="getCurrentBrandClass(brand)"
   >
-    {{ brand.name }}
+    {{ brand.brandName  }}
+  
   </li>
 </ul>

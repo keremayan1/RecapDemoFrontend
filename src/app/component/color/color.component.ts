@@ -16,18 +16,19 @@ export class ColorComponent implements OnInit {
     this.getColors();
   }
   getColors() {
-    this.colorService
-      .getColors()
-      .subscribe((response) => (this.colors = response.data));
+    this.colorService.getColors().subscribe((response) => {
+      this.colors = response.data;
+      console.log(response);
+    });
   }
   getCurrentColorClass(color: Color) {
     if (color == this.currentColors) {
-      return 'list-group-item active';
+      return 'list-group-item list-group-item-success';
     } else {
       return 'list-group-item';
     }
   }
-  setCurrentColorName(color:Color){
-    this.currentColors=color;
-  } 
+  setCurrentColorName(color: Color) {
+    this.currentColors = color;
+  }
 }
