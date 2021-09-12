@@ -6,14 +6,12 @@
     (click)="setCurrentBrand(brand)"
     *ngFor="let brand of brands"
 
-  *ngFor="let brand of brands"
-    routerLink="/cars/brand/{{ brand.id }}"
-    (click)="setCurrentBrandName(brand)"
+ 
     
 
     [class]="getCurrentBrandClass(brand)"
   >
-    {{ brand.brandName  }} 2
+    {{ brand.brandName  }} 
   
   </li>
 </ul>
