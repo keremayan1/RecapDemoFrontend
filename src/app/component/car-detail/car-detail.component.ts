@@ -16,6 +16,10 @@ export class CarDetailComponent implements OnInit {
   carDetails: CarDetail[] = [];
   brands: Brand[] = [];
   colors: Color[] = [];
+  cardetailFilter='';
+  brandFilter:number=0;
+  colorFilter:number=0;
+  imageUrl = 'https://localhost:44373/';
   constructor(
     private carDetailService: CarDetailService,
     private brandService: BrandService,
@@ -76,5 +80,13 @@ export class CarDetailComponent implements OnInit {
     this.colorService
       .getColors()
       .subscribe((response) => (this.colors = response.data));
+  }
+  getSelectedBrand(brandId:number){
+   if(this.brandFilter==brandId) return true;
+   else return false;
+  }
+  getSelectedColor(colorId:number){
+   if(this.colorFilter==colorId) return true;
+   else return false;
   }
 }
