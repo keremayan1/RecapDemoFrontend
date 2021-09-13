@@ -7,7 +7,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { BrandComponent } from './component/brand/brand.component';
 import { ColorComponent } from './component/color/color.component';
 import { CarComponent } from './component/car/car.component';
-import { RentalComponent } from './component/rental/rental.component' 
+import { RentalComponent } from './component/rental/rental.component';
+import { CarDetailComponent } from './services/car-detail/car-detail.component' 
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { RentalComponent } from './component/rental/rental.component'
     BrandComponent,
     ColorComponent,
     CarComponent,
-    RentalComponent
+    RentalComponent,
+    CarDetailComponent
   ],
   imports: [
     BrowserModule,
