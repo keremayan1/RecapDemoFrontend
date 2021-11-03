@@ -7,4 +7,6 @@ export interface Car {
   dailyPrice: number;
   modelYear: number;
   description: string;
+  imagePath: string[];
+  isRentable: boolean;
 }

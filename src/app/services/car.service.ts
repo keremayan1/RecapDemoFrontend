@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Car } from '../models/car';
 import { ListResponseModel } from '../models/listResponseModel';
-import { SingleResponseModel } from '../models/singleResponseModel';
 
 @Injectable({
   providedIn: 'root'
@@ -19,14 +18,22 @@ export class CarService {
   }
   getCarsByBrandId(brandId:number):Observable<ListResponseModel<Car>>{
     let newPath = this.apiUrl + 'cars/getbybrandid?brandId='+brandId;
-    console.log(newPath);
+   
    return this.httpClient.get<ListResponseModel<Car>>(newPath);
    
   }
   getCarsByColorId(colorId:number):Observable<ListResponseModel<Car>>{
     let newPath = this.apiUrl + 'cars/getbycolorid?colorId='+colorId;
-    console.log(newPath);
+    
    return this.httpClient.get<ListResponseModel<Car>>(newPath);
+  }
+  getCarsByBrandIdAndColorId(brandId:number,colorId:number):Observable<ListResponseModel<Car>>{
+    let newPath = this.apiUrl + 'cars/getcarsbybrandidandcolorid?brandId='+brandId+'&colorId='+colorId;
+    return this.httpClient.get<ListResponseModel<Car>>(newPath);
+  }
+  getCarByCarId(carId:number):Observable<ListResponseModel<Car>>{
+    let newPath = this.apiUrl+'cars/getbycarid?carId='+carId;
+    return this.httpClient.get<ListResponseModel<Car>>(newPath);
   }
 
 }

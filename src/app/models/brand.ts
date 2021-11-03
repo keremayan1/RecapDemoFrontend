@@ -7,8 +7,4 @@ export interface Brand {
   
 }
 
-export interface Brand{
-    id:number,
-    name:string;
-}
 

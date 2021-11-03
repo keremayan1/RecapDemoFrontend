@@ -12,6 +12,10 @@ import { CarDetailComponent } from './component/car-detail/car-detail.component'
 import { FormsModule } from '@angular/forms';
 
 import { NavbarComponent } from './component/navbar/navbar.component';
+import { ColorFilterPipePipe } from './pipes/color-filter-pipe.pipe';
+import { BrandFilterPipePipe } from './pipes/brand-filter-pipe.pipe';
+import { CarFilterPipe } from './pipes/car-filter.pipe';
+import { CarImageComponent } from './component/car-image/car-image.component';
 
 
 @NgModule({
@@ -23,7 +27,11 @@ import { NavbarComponent } from './component/navbar/navbar.component';
     RentalComponent,
     CarDetailComponent,
   
-    NavbarComponent
+    NavbarComponent,
+        ColorFilterPipePipe,
+        BrandFilterPipePipe,
+        CarFilterPipe,
+        CarImageComponent
   ],
   imports: [
     BrowserModule,

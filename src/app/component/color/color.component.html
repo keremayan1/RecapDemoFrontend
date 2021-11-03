@@ -1,11 +1,11 @@
 
-<ul class="list-group">
+<ul class="list-group |colorFilterPipe:colorFilter">
   <li
     *ngFor="let color of colors"
     routerLink="/cardetails/color/{{ color.colorId }}"
     (click)="setCurrentColorName(color)"
     [class]="getCurrentColorClass(color)"
   >
-    {{ color.colorName }}
+    {{ color.colorName |uppercase}}
   </li>
 </ul>

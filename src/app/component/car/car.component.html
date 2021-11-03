@@ -1,21 +1,85 @@
-<div *ngIf="dataLoaded == false" class="spinner-border" role="status">
-  <span class="visually-hidden">Loading...</span>
+<div class="row">
+  <div class="col-md-4">
+    <select
+      [(ngModel)]="brandFilter"
+      class="form-select"
+      aria-placeholder="Marka Seçiniz"
+    >
+      <option value="0">Marka Sec</option>
+      <option
+        *ngFor="let brand of brands"
+        [value]="brand.brandId"
+        [selected]="getSelectedBrand(brand.brandId)"
+      >
+        {{ brand.brandName }}
+      </option>
+    </select>
+  </div>
+
+  <div class="col-md-4">
+    <select
+      [(ngModel)]="colorFilter"
+      class="form-select"
+      aria-placeholder="Renk Seciniz"
+    >
+      <option value="0">Renk Sec</option>
+      <option
+        *ngFor="let color of colors"
+        [value]="color.colorId"
+        [selected]="getSelectedColor(color.colorId)"
+      >
+        {{ color.colorName }}
+      </option>
+    </select>
+  </div>
+  <div class="col-md-4">
+    <!-- <button
+      routerLink="/cardetails/brand/{{ brandFilter }}/color/{{ colorFilter }}"
+      style="width: 100px"
+      type="button"
+      //Value deger alirken [value] ile verilmelidir [selected],[(ngmodel)]
+    > -->
+    <button
+      routerLink="/cardetails/brand/{{ brandFilter }}/color/{{ colorFilter }}"
+      style="width: 100%"
+      type="button"
+      class="btn btn-outline-dark"
+    >
+      Filtre
+    </button>
+  </div>
 </div>
-<table *ngIf="dataLoaded == true" class="table">
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Araba İsmi</th>
-      <th>Renk</th>
-      <th>Günlük Fiyat</th>
-      <th>Yılı</th>
-    </tr>
-  </thead>
-  <tr *ngFor="let car of cars">
-    <td>{{ car.carId }}</td>
-    <td>{{ car.brandId }}</td>
-    <td>{{ car.colorId }}</td>
-    <td>{{ car.dailyPrice }}</td>
-    <td>{{ car.modelYear }}</td> 
-  </tr>
-</table>
+<div class="row-md-4" style="margin-left: 1px">
+  <div
+    *ngFor="let car of cars"
+    class="card mt-2 mr-2"
+    [ngClass]="car.isRentable ? 'online' : 'offline'"
+    style="width: 18rem; margin-right: 10px"
+    
+  >
+  <img *ngIf="car.imagePath" [src]="imageUrl+car.imagePath" class="card-img-top"
+  style="object-fit: cover;" width="100" height="50%" alt="...">
+<img *ngIf="!car.imagePath" [src]="imageUrl+'/images/mslogo.png'" class="card-img-top"
+  style="object-fit: cover;" width="100" height="50%" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ car.brandName }}</h5>
+      <p class="card-text">Acıklama Gelecek</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{{ car.modelYear }}</li>
+      <li class="list-group-item">{{ car.colorName }}</li>
+      <li class="list-group-item">{{ car.brandName }}</li>
+      <li class="list-group-item">
+        {{ car.dailyPrice | currency: "USD":true:"1.2-2" }}
+      </li>
+      <li class="list-group-item">{{ car.description }}</li>
+      <li class="list-group-item">{{ car.isRentable }}</li>
+    </ul>
+    <div class="card-body">
+      <div class="row">
+        <button type="button" routerLink="/cardetails/cardetailimage/{{car.carId}}" class="btn btn-outline-dark">Araba Detay</button>
+      </div>
+    </div>
+   
+  </div>
+</div>
